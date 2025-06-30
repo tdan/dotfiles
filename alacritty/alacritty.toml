@@ -1,0 +1,15 @@
+[window]
+decorations = "None"
+padding ={ x = 5, y = 5 }
+dynamic_padding = true
+startup_mode = "Maximized"
+
+[font]
+normal = { family = "MonaspiceNe Nerd Font Mono", style = "Regular" }
+size = 11.0
+
+[terminal]
+
+[terminal.shell]
+program = "/bin/zsh"
+args = ["-l", "-c", "tmux attach || tmux"]

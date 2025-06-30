@@ -1,0 +1,10 @@
+#! /bin/sh
+
+
+# check if wlsunset command exists
+if ! cmd_loc="$(type -p "wlsunset")" || [[ -z $cmd_loc ]]; then
+  exit 1
+fi
+
+# Orlando coordinate is <28.54,-81.38>
+wlsunset -l 28.54 -L -81.38
