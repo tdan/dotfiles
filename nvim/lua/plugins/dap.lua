@@ -4,25 +4,28 @@ vim.fn.sign_define('DapBreakpoint',
         texthl = 'DapBreakpointSymbol',
         linehl = 'DapBreakpoint',
         numhl = 'DapBreakpoint'
-    })
+    }
+)
+
 vim.fn.sign_define('DapStopped',
     {
         texthl = 'DapStoppedSymbol',
         linehl = 'CursorLine',
         numhl = 'DapBreakpoint'
-    })
+    }
+)
 
 return {
     {
         'mfussenegger/nvim-dap',
     },
-  {
-    'rcarriga/nvim-dap-ui',
-    requires = {
-      'mfussenegger/nvim-dap',
-      'nvim-neotest/nvim-nio',
-    },
-    config = function ()
+    {
+        'rcarriga/nvim-dap-ui',
+        requires = {
+            'mfussenegger/nvim-dap',
+            'nvim-neotest/nvim-nio',
+        },
+        config = function ()
             local dap, dapui = require('dap'), require('dapui')
 
             dap.adapters.gdb = {
