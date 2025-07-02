@@ -28,6 +28,7 @@ vim.keymap.set('n', '<leader>fn', function ()
   builtin.find_files({ cwd = vim.fn.stdpath('config') })
 end, { desc = 'Find Neovim Config files' })
 vim.keymap.set('n', '<leader><leader>', '<esc><cmd>lua require("telescope").extensions.recent_files.pick()<cr>', { desc = 'Telescope open recent files' })
+vim.keymap.set('n', '<leader>u', '<cmd>Telescope undo<cr>', { desc = 'Telescope undo' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope Help' })
 
 -- LSP
