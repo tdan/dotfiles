@@ -1,3 +1,4 @@
+# Let's test if hardlink and git work
 # Default config for sway
 #
 # Copy this to ~/.config/sway/config and edit it to your liking.
@@ -58,11 +59,15 @@ output DP-* {
 #
 # Example configuration:
 #
-exec swayidle -w \
-     timeout 300 'swaylock -f -c 000000' \
-     timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-     timeout 1200 'systemctl suspend' \
-     before-sleep 'swaylock -f -c 000000'
+# exec swayidle -w \
+#      timeout 300 'swaylock -f -c 000000' \
+#      timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+#      timeout 1200 'systemctl suspend' \
+#      before-sleep 'swaylock -f -c 000000'
+
+# NOTE: Keybinding to enable/disable idle mode, see under "Key bindings"
+exec ~/.config/sway/scripts/idle.sh
+
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -117,7 +122,7 @@ input "7805:11402:ROCCAT_Kone_Mouse" {
 
     bindsym $mod+d exec $menu
     bindsym $mod+Shift+d exec i3-dmenu-desktop
-    bindsym $mod+n exec nautilus -w
+    bindsym $mod+n exec pcmanfm --no-desktop
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -275,6 +280,9 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+bindsym $mod+Shift+i exec "if pgrep -x swayidle > /dev/null; then killall swayidle; notify-send 'Swayidle' 'Disabled'; \
+else ~/.config/sway/scripts/idle.sh; notify-send 'Swayidle' 'Enabled'; fi"
+
 #
 # Status Bar:
 #
@@ -307,3 +315,4 @@ exec nm-applet --indicator
 exec fcitx5
 # exec rog-control-center
 exec ~/.dropbox-dist/dropboxd
+exec emacs --daemon
