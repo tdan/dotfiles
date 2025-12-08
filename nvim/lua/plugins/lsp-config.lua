@@ -56,7 +56,10 @@ return {
       lspconfig.phpactor.setup({
         capabilities = capabilities,
         init_options = {
-          ['language_server_phpstan.enabled'] = true,
+            ['language_server_phpstan.enabled'] = true,
+            -- ['phpactor.project.workspace'] = {
+            --     "~/Documents/Code/wp-dev/wp-includes/",
+            -- },
         },
       })
 

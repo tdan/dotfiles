@@ -26,29 +26,44 @@ return {
   --     vim.cmd('colorscheme edge')
   --   end,
   -- },
-  -- {
-  --   'folke/tokyonight.nvim',
-  --   lazy = false,
-  --   priority = 1000,
-  --   config = function()
-  --     require('lualine').setup {
-  --       options = {
-  --         theme = 'tokyonight'
-  --       },
-  --     }
-  --
-  --     vim.cmd('colorscheme tokyonight-moon')
-  --   end,
-  -- },
   {
-    'AlexvZyl/nordic.nvim',
+    'folke/tokyonight.nvim',
     lazy = false,
     priority = 1000,
     config = function()
-      require('nordic').load()
-      require('lualine').setup({
-        options = { theme = 'nordic' }
-      })
+      require('lualine').setup {
+        options = {
+          theme = 'tokyonight'
+        },
+      }
+
+      vim.cmd('colorscheme tokyonight-moon')
     end,
   },
+    -- {
+    --     'AlexvZyl/nordic.nvim',
+    --     lazy = false,
+    --     priority = 1000,
+    --     config = function()
+    --         require('nordic').load()
+    --         require('lualine').setup({
+    --             options = { theme = 'nordic' }
+    --         })
+    --     end,
+    -- },
+    -- {
+    --     'Shatur/neovim-ayu',
+    --     lazy = false,
+    --     priority = 1000,
+    --     config = function()
+    --         require('ayu').setup({
+    --             mirage = true,
+    --             terminal = true,
+    --         })
+    --         require('lualine').setup({
+    --             options = { theme = 'ayu' }
+    --         })
+    --         vim.cmd('colorscheme ayu-mirage')
+    --     end
+    -- }
 }

@@ -236,7 +236,7 @@ exec --no-startup-id fcitx5
 exec --no-startup-id ~/.dropbox-dist/dropboxd
 exec --no-startup-id rog-control-center
 exec --no-startup-id redshift -l 28.54:-81.38
-# exec redshift
+exec --no-startup-id emacs --daemon
 
 # Wallpaper
 exec feh --bg-fill ~/Pictures/Wallpapers/Nordic-mountain-wallpaper.jpg 
