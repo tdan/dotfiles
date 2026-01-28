@@ -16,7 +16,7 @@ return {
   {
     'neovim/nvim-lspconfig',
     config = function()
-      local lspconfig = require('lspconfig')
+      local lspconfig = vim.lsp.config
       -- local coq = require('coq')
       -- local capabilities = coq.lsp_ensure_capabilities()
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -29,7 +29,7 @@ return {
       })
 
       -- Lua
-      lspconfig.lua_ls.setup({
+      lspconfig('lua_ls', {
         settings = {
           Lua = {
             runtime = {
@@ -53,7 +53,7 @@ return {
       })
 
       -- PHP
-      lspconfig.phpactor.setup({
+      lspconfig('intelephense', {
         capabilities = capabilities,
         init_options = {
             ['language_server_phpstan.enabled'] = true,
@@ -66,20 +66,20 @@ return {
       -- lspconfig.phpstan.setup({})
 
       -- TS/JS
-      lspconfig.ts_ls.setup({
+      lspconfig('ts_ls', {
         capabilities = capabilities,
       })
-      lspconfig.eslint.setup({
+      lspconfig('eslint', {
         capabilities = capabilities,
       })
 
       -- Python
-      lspconfig.pylsp.setup({
+      lspconfig('pylsp', {
         capabilities = capabilities,
       })
 
       -- C/C++
-      lspconfig.clangd.setup({
+      lspconfig('clangd', {
         capabilities = capabilities,
       })
 
@@ -87,7 +87,7 @@ return {
       -- Handled in java.lua
 
       -- HTML/CSS
-      lspconfig.html.setup({
+      lspconfig('html', {
         capabilities = capabilities,
       })
     end,

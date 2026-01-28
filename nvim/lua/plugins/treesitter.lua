@@ -1,10 +1,10 @@
 return {
   {
     'nvim-treesitter/nvim-treesitter',
-    dependencies = { },
+    lazy = false,
     build = ':TSUpdate',
     config = function()
-      local config = require('nvim-treesitter.configs')
+      local config = require('nvim-treesitter')
       config.setup({
         highlight = {
           additional_vim_regex_highlighting = false,
@@ -21,5 +21,6 @@ return {
   },
   {
     'nvim-treesitter/nvim-treesitter-textobjects',
+    branch = 'main',
   },
 }
